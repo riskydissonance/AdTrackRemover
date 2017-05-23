@@ -1,5 +1,4 @@
 var redirection_params = ['redir', 'u'];
-var params_to_remove = ['fb', 'sig'];
 
 var replace_with_target_url = function(url) {
     var regexString = "[\\?&](" + redirection_params.join("|") + ")=([^&#]*)";
@@ -17,9 +16,7 @@ $(document).on("click", "a", function(){
       next = replace_with_target_url(converted_url);
     }
     // Remove any fb added params.
-    var regexString = "[\\?&](" + params_to_remove.join("|") + ")=([^&#]*)";
-    var regex = new RegExp(regexString);
-    converted_url = converted_url.replace(regexString, "")
+    converted_url = converted_url.replace(/[\\?&](fb|sig|utm_source)=[^&#]*/g, "")
     // If there is no ? to start params anymore, replace the first &
     if(converted_url.includes('&') && !converted_url.includes('?')){
       var indexOfFirstAnd = converted_url.indexOf('&');
