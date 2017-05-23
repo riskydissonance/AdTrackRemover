@@ -1,4 +1,5 @@
 var redirection_params = ['redir', 'u'];
+var params_to_remove = ['fb', 'sig'];
 
 var replace_with_target_url = function(url) {
     var regexString = "[\\?&](" + redirection_params.join("|") + ")=([^&#]*)";
@@ -14,6 +15,15 @@ $(document).on("click", "a", function(){
     while(next != null){
       converted_url =  decodeURIComponent(next);
       next = replace_with_target_url(converted_url);
+    }
+    // Remove any fb added params.
+    var regexString = "[\\?&](" + params_to_remove.join("|") + ")=([^&#]*)";
+    var regex = new RegExp(regexString);
+    converted_url = converted_url.replace(regexString, "")
+    // If there is no ? to start params anymore, replace the first &
+    if(converted_url.includes('&') && !converted_url.includes('?')){
+      var indexOfFirstAnd = converted_url.indexOf('&');
+      converted_url = converted_url.substring(0, indexOfFirstAnd) + '?' + converted_url.substring(indexOfFirstAnd + 1, converted_url.length);
     }
     // alert("Converted Url: " + converted_url);
     $(this).attr('href', converted_url);

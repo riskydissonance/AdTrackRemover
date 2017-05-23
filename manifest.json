@@ -1,8 +1,9 @@
 {
   "manifest_version": 2,
   "name": "AdTrackRemover",
-  "description": "Stops some ad tracking in FB by removing the middle redirection links just replacing it with the actual destination. See https://github.com/robjbone/AdTrackRemover",
-  "version": "1.0",
+  "description": "Stops some ad tracking in FB by removing the middle redirection links just replacing it with the actual destination.",
+  "homepage_url" : "https://github.com/robjbone/AdTrackRemover",
+  "version": "1.0.1",
   "permissions": ["*://www.facebook.com/*"],
   "content_scripts": [
     {
