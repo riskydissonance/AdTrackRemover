@@ -1,7 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "FbNoTracking",
-  "description": "Stops ad tracking in FB",
+  "name": "AdTrackRemover",
+  "description": "Stops some ad tracking in FB by removing the middle redirection links just replacing it with the actual destination.
+  See https://github.com/robjbone/AdTrackRemover",
   "version": "1.0",
   "permissions": ["*://www.facebook.com/*"],
   "content_scripts": [
