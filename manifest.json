@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "FbNoTracking",
+  "description": "Stops ad tracking in FB",
+  "version": "1.0",
+  "permissions": ["*://www.facebook.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["*://www.facebook.com/*"],
+      "js": ["jquery-3.2.1.min.js", "content_script.js"]
+    }
+  ]
+}
